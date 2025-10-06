@@ -1,12 +1,12 @@
 # ----------------------------------------
 # Railway-ready Dockerfile for Ignition Perspective
-# Using official Inductive Automation Docker image
+# Using official Ignition Alpine image
 # ----------------------------------------
 
-# Use official Ignition image (replace version if needed)
-FROM inductiveautomation/ignition:8.1.9
+# Use the lightweight Alpine-based Ignition image
+FROM inductiveautomation/ignition:8.1.9-alpine
 
-# Set working directory (Ignition already handles internal paths)
+# Set working directory (Ignition handles internal paths)
 WORKDIR /var/lib/ignition
 
 # Expose Perspective web port
@@ -15,5 +15,5 @@ EXPOSE 8088
 # Optional: set environment variable for writable data folder
 ENV IGNITION_DATA_DIR=/var/lib/ignition/data
 
-# The official image already starts Ignition by default
-# CMD is already handled in the base image
+# The Alpine image handles entrypoint and Tini internally
+# No need to specify CMD, the container starts Ignition automatically
