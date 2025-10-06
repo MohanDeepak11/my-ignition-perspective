@@ -1,0 +1,91 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "AXLAP254",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "c4569e1b1205fc960a5bda8e33c0f16d675ec4fb80eebdba9ce6b4f5e0c8720d",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "mohandeepak2002",
+      "timestamp": "2025-08-11T04:38:02Z"
+    },
+    "syntaxProvider": "class com.adbs.syntax.MSSQLSyntaxProvider",
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "Timestamp",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "Availability",
+        "sqlType": 4
+      },
+      {
+        "type": "Parameter",
+        "identifier": "Performance",
+        "sqlType": 4
+      },
+      {
+        "type": "Parameter",
+        "identifier": "Quality",
+        "sqlType": 4
+      },
+      {
+        "type": "Parameter",
+        "identifier": "OEE",
+        "sqlType": 4
+      },
+      {
+        "type": "Parameter",
+        "identifier": "ProductionCount",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "RejectionCount",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "Downtime",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "IdleTime",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "AvgCycleTime",
+        "sqlType": 4
+      },
+      {
+        "type": "Parameter",
+        "identifier": "EffectiveCycleTime",
+        "sqlType": 4
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "Mohan",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "45b2192d99d964687695a626dacbaf1d3012e81447ce2da7b959247f9f886fe7",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      },
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "mohandeepak2002",
+      "timestamp": "2025-08-01T12:22:08Z"
+    }
+  }
+}

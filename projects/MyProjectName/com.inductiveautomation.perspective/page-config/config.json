@@ -1,0 +1,107 @@
+{
+  "pages": {
+    "/(F)EXCELWITHNAMEDQUERY": {
+      "title": "",
+      "viewPath": "(F)EXCELWITHNAMEDQUERY"
+    },
+    "/Com": {
+      "title": "",
+      "viewPath": "(F)EXCELWITHNAMEDQUERY"
+    },
+    "/StationDetails/:stationNumber": {
+      "title": "",
+      "viewPath": "Primaryviews/StationDetails/StationDetails - Main"
+    },
+    "/advancestyle": {
+      "title": "",
+      "viewPath": "advancestyle"
+    },
+    "/bluetooth": {
+      "viewPath": "Bluetooth"
+    },
+    "/goal": {
+      "viewPath": "goal"
+    },
+    "/history": {
+      "title": "",
+      "viewPath": "Primaryviews/History"
+    },
+    "/image": {
+      "title": "",
+      "viewPath": "image"
+    },
+    "/new-page": {
+      "title": "",
+      "viewPath": "Objects/Review"
+    },
+    "/new-page1": {
+      "title": "",
+      "viewPath": "passworsusername"
+    },
+    "/newoverview": {
+      "title": "",
+      "viewPath": "Primaryviews/NEWOVERVIEW"
+    },
+    "/passworsusername": {
+      "title": "",
+      "viewPath": "passworsusername"
+    },
+    "/playwright": {
+      "viewPath": "playwright"
+    },
+    "/popuppu": {
+      "viewPath": "popuppu"
+    },
+    "/range": {
+      "viewPath": "range"
+    },
+    "/real": {
+      "docks": {
+        "top": [
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "push",
+            "handle": "hide",
+            "iconUrl": "",
+            "id": "",
+            "modal": false,
+            "resizable": false,
+            "show": "visible",
+            "size": 150,
+            "viewParams": {},
+            "viewPath": "head"
+          }
+        ]
+      },
+      "title": "",
+      "viewPath": "Multi"
+    },
+    "/shrink": {
+      "title": "",
+      "viewPath": "range (1)"
+    },
+    "/test": {
+      "viewPath": "Navigation/breakpoint - topview"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom",
+    "left": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 768,
+        "content": "cover",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "menu",
+        "modal": false,
+        "resizable": false,
+        "show": "onDemand",
+        "size": 210,
+        "viewParams": {},
+        "viewPath": "Docks/Menu Vertical"
+      }
+    ]
+  }
+}

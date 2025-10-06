@@ -1,0 +1,12 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "#FFCA8A",
+      "color": "#000000",
+      "fontFamily": "inherit",
+      "fontSize": "14px",
+      "fontWeight": "normal",
+      "textAlign": "center"
+    }
+  }
+}
