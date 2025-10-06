@@ -1,14 +1,20 @@
-# Base image with Java 11
+# 1. Start from Java 11 base image
 FROM openjdk:11-jre-slim
 
-# Working directory
+# 2. Set working directory inside container
 WORKDIR /opt/ignition
 
-# Copy Ignition files
+# 3. Copy Ignition files into this folder
 COPY ./ignition-installer /opt/ignition
 
-# Expose Perspective port
+# 4. Create a writable data folder
+RUN mkdir -p /opt/ignition/data
+
+# 5. Tell Ignition to use this writable folder for configs
+ENV IGNITION_DATA_DIR=/opt/ignition/data
+
+# 6. Expose Perspective port
 EXPOSE 8088
 
-# Run Ignition
+# 7. Run Ignition
 CMD ["java", "-jar", "ignition.jar", "gateway"]
