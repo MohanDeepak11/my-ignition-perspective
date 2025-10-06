@@ -1,19 +1,20 @@
-# ----------------------------------------
-# Railway-ready Dockerfile for Ignition Perspective
-# Using official Ignition Alpine image
-# ----------------------------------------
+# Official Ignition image
+FROM inductiveautomation/ignition:8.1.9
 
-# Use the lightweight Alpine-based Ignition image
-FROM inductiveautomation/ignition:8.1.9-alpine
+# Install tini to avoid "executable ./tini not found" errors
+RUN apt-get update && apt-get install -y tini && rm -rf /var/lib/apt/lists/*
 
-# Set working directory (Ignition handles internal paths)
+# Set working directory
 WORKDIR /var/lib/ignition
 
 # Expose Perspective web port
 EXPOSE 8088
 
-# Optional: set environment variable for writable data folder
+# Environment variable for Ignition data folder
 ENV IGNITION_DATA_DIR=/var/lib/ignition/data
 
-# The Alpine image handles entrypoint and Tini internally
-# No need to specify CMD, the container starts Ignition automatically
+# Use tini as init system for the container
+ENTRYPOINT ["/usr/bin/tini", "--"]
+
+# Default command to start Ignition
+CMD ["./ignition-gateway"]
