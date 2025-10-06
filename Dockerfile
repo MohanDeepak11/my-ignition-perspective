@@ -1,20 +1,33 @@
-# 1. Start from Java 11 base image
+# ----------------------------------------
+# Dockerfile for Ignition Perspective (Railway-ready)
+# ----------------------------------------
+
+# Use Java 11 base image (required by Ignition)
 FROM openjdk:11-jre-slim
 
-# 2. Set working directory inside container
+# Set working directory
 WORKDIR /opt/ignition
 
-# 3. Copy Ignition files into this folder
-COPY ./ignition-installer /opt/ignition
+# Install curl (needed to download Ignition)
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 
-# 4. Create a writable data folder
+# Download Ignition Gateway JAR (replace URL with latest version if needed)
+RUN curl -L -o ignition.jar "https://files.inductiveautomation.com/releases/8.1.9/ignition-gateway-8.1.9.jar"
+
+# Create writable data folder for Ignition
 RUN mkdir -p /opt/ignition/data
 
-# 5. Tell Ignition to use this writable folder for configs
-ENV IGNITION_DATA_DIR=/opt/ignition/data
+# Ensure permissions are correct for non-root user
+RUN chown -R 1000:1000 /opt/ignition
 
-# 6. Expose Perspective port
+# Run as non-root user (matches Railway free tier security)
+USER 1000
+
+# Expose Perspective web port
 EXPOSE 8088
 
-# 7. Run Ignition
+# Set environment variable so Ignition writes config files to writable folder
+ENV IGNITION_DATA_DIR=/opt/ignition/data
+
+# Start Ignition Gateway
 CMD ["java", "-jar", "ignition.jar", "gateway"]
