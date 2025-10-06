@@ -1,0 +1,53 @@
+# ------------------------------
+# General OS / IDE
+# ------------------------------
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.lock
+
+# VS Code / IntelliJ
+.vscode/
+.idea/
+*.code-workspace
+
+# Windows / OneDrive
+desktop.ini
+~$*
+*.lnk
+*.crdownload
+*.tmp
+*.etl
+
+# Python / Node / Gradle (if used)
+__pycache__/
+node_modules/
+dist/
+build/
+*.egg-info/
+
+# Docker
+*.pid
+*.tar
+*.img
+*.old
+.env
+.env.*
+
+# Git
+.gitignore
+.gitlab-ci.yml
+
+# Ignition specific
+# Gateway backups / temp
+*.gwbk
+*.gw8bk
+*.perspectivecache
+*.ignitionbackup
+*.tmp
+*.bak
+gateway_generated/
