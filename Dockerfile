@@ -1,18 +1,22 @@
-# Use the official Ignition image (full, not Alpine or slim)
-FROM inductiveautomation/ignition:8.1.9
+# Use a standard Java image
+FROM openjdk:11-jre-slim
 
-# Expose the Perspective web port
-EXPOSE 8088
-
-# Set Ignition data directory
-# Railway volumes will map to this path for persistence
-ENV IGNITION_DATA_DIR=/var/lib/ignition/data
+# Install tini
+RUN apt-get update && \
+    apt-get install -y tini && \
+    rm -rf /var/lib/apt/lists/*
 
 # Set working directory
-WORKDIR /var/lib/ignition
+WORKDIR /opt/ignition
 
-# Optional: copy your project files (if any)
-# COPY ./projects /var/lib/ignition/data/projects
+# Copy Ignition installer or your prebuilt files
+COPY ./ignition-installer /opt/ignition
 
-# Do NOT override ENTRYPOINT or CMD
-# The official image already starts Ignition via tini
+# Set Ignition data directory
+ENV IGNITION_DATA_DIR=/var/lib/ignition/data
+
+# Expose Perspective port
+EXPOSE 8088
+
+# Start Ignition using tini
+ENTRYPOINT ["/usr/bin/tini", "--", "./ignition-gateway"]
