@@ -1,12 +1,20 @@
-# Base image
-FROM mohandeepak2002/ignition-test
+# Use official Ignition image
+FROM inductiveautomation/ignition:8.1.9
 
-# Environment variables
-ENV GATEWAY_SOFT_KEY=9NBK-P5YV
-ENV GATEWAY_ACTIVATION_TOKEN=eyJrdHkiOiJSU0EiLCJraWQiOiI3MmQyMWYzNC0yMmQ2LTRmMmUtYjc3NC1mNTg5MDJk...
+# Expose the Perspective web port
+EXPOSE 8088
 
-# Expose ports for Ignition
-EXPOSE 8088 8043 8060
+# Set environment variable for data directory
+# Railway volumes will map to this path for persistence
+ENV IGNITION_DATA_DIR=/var/lib/ignition/data
 
-# Persist projects folder
-VOLUME /usr/local/bin/data/projects
+# Set working directory
+WORKDIR /var/lib/ignition
+
+# Do NOT override ENTRYPOINT or CMD
+# The official image will start Ignition automatically
+
+# Optional: copy any project-specific files if needed
+# COPY ./projects /var/lib/ignition/data/projects
+
+# End of Dockerfile
