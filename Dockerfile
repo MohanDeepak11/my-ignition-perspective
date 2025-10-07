@@ -1,14 +1,14 @@
 FROM inductiveautomation/ignition:8.1.9
 
-# Copy your Ignition data
+# Copy your gateway data into the image
 COPY ignition_data_copy /usr/local/bin/ignition/data
 
-# Optional: Java memory tuning
+# Optional JVM tuning
 ENV JAVA_OPTS="-Djava.security.egd=file:/dev/./urandom -Xmx2g -Xms1g"
 
-# Railway assigns a dynamic port
-ENV GATEWAY_HTTP_PORT=$PORT
-EXPOSE $PORT
+# Railway uses $PORT dynamically
+ENV GATEWAY_HTTP_PORT=${PORT:-8088}
+EXPOSE ${PORT:-8088}
 
-# ✅ Run Ignition in console mode so it stays active
-ENTRYPOINT ["./ignition-gateway", "-c"]
+# Correct way to start Ignition Gateway in console mode
+ENTRYPOINT ["/usr/local/bin/ignition/ignition-gateway", "ignition.conf", "wrapper.console.force=true"]
