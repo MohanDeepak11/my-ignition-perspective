@@ -1,15 +1,12 @@
-# Use a standard Java image
 FROM openjdk:11-jre-slim
 
 # Install tini
-RUN apt-get update && \
-    apt-get install -y tini && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y tini && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /opt/ignition
 
-# Copy Ignition installer or your prebuilt files
+# Copy Ignition installer files
 COPY ./ignition-installer /opt/ignition
 
 # Set Ignition data directory
