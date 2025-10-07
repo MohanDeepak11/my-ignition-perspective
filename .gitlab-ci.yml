@@ -1,0 +1,26 @@
+stages:
+  - build
+  - push
+
+variables:
+  IMAGE_NAME: "mohandeepak2002/ignition-test"
+  IMAGE_TAG: "$IMAGE_NAME:latest"
+
+before_script:
+  - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin
+
+build_image:
+  stage: build
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+  script:
+    - docker build -t $IMAGE_TAG .
+
+push_image:
+  stage: push
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+  script:
+    - docker push $IMAGE_TAG
